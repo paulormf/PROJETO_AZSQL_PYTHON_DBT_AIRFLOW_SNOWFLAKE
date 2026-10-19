@@ -1,0 +1,26 @@
+name: projeto_azsql_python_dbt_airflow_snowflake
+version: "1.0.0"
+config-version: 2
+
+profile: projeto_azsql_python_dbt_airflow_snowflake
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+flags:
+  enable_state: false
+
+models:
+  projeto_azsql_python_dbt_airflow_snowflake:
+    silver:
+      +materialized: table
+      +schema: silver
+    gold:
+      +materialized: table
+      +schema: gold

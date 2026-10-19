@@ -1,0 +1,75 @@
+version: 2
+
+sources:
+  - name: bronze
+    description: Dados brutos ingeridos do Azure SQL para o Snowflake.
+    database: COMMERCE_DWH_DEV
+    schema: BRONZE
+
+    tables:
+      - name: brands
+        identifier: AZSQL_BRANDS
+        description: "Tabela bruta brands originada no Azure SQL."
+      - name: campaigns
+        identifier: AZSQL_CAMPAIGNS
+        description: "Tabela bruta campaigns originada no Azure SQL."
+      - name: carriers
+        identifier: AZSQL_CARRIERS
+        description: "Tabela bruta carriers originada no Azure SQL."
+      - name: categories
+        identifier: AZSQL_CATEGORIES
+        description: "Tabela bruta categories originada no Azure SQL."
+      - name: customer_addresses
+        identifier: AZSQL_CUSTOMER_ADDRESSES
+        description: "Tabela bruta customer_addresses originada no Azure SQL."
+      - name: customer_campaigns
+        identifier: AZSQL_CUSTOMER_CAMPAIGNS
+        description: "Tabela bruta customer_campaigns originada no Azure SQL."
+      - name: customer_contacts
+        identifier: AZSQL_CUSTOMER_CONTACTS
+        description: "Tabela bruta customer_contacts originada no Azure SQL."
+      - name: customers
+        identifier: AZSQL_CUSTOMERS
+        description: "Tabela bruta customers originada no Azure SQL."
+      - name: departments
+        identifier: AZSQL_DEPARTMENTS
+        description: "Tabela bruta departments originada no Azure SQL."
+      - name: employees
+        identifier: AZSQL_EMPLOYEES
+        description: "Tabela bruta employees originada no Azure SQL."
+      - name: inventory_balance
+        identifier: AZSQL_INVENTORY_BALANCE
+        description: "Tabela bruta inventory_balance originada no Azure SQL."
+      - name: inventory_movements
+        identifier: AZSQL_INVENTORY_MOVEMENTS
+        description: "Tabela bruta inventory_movements originada no Azure SQL."
+      - name: order_items
+        identifier: AZSQL_ORDER_ITEMS
+        description: "Tabela bruta order_items originada no Azure SQL."
+      - name: orders
+        identifier: AZSQL_ORDERS
+        description: "Tabela bruta orders originada no Azure SQL."
+      - name: payment_transactions
+        identifier: AZSQL_PAYMENT_TRANSACTIONS
+        description: "Tabela bruta payment_transactions originada no Azure SQL."
+      - name: payments
+        identifier: AZSQL_PAYMENTS
+        description: "Tabela bruta payments originada no Azure SQL."
+      - name: products
+        identifier: AZSQL_PRODUCTS
+        description: "Tabela bruta products originada no Azure SQL."
+      - name: returns
+        identifier: AZSQL_RETURNS
+        description: "Tabela bruta returns originada no Azure SQL."
+      - name: sales_channels
+        identifier: AZSQL_SALES_CHANNELS
+        description: "Tabela bruta sales_channels originada no Azure SQL."
+      - name: shipments
+        identifier: AZSQL_SHIPMENTS
+        description: "Tabela bruta shipments originada no Azure SQL."
+      - name: suppliers
+        identifier: AZSQL_SUPPLIERS
+        description: "Tabela bruta suppliers originada no Azure SQL."
+      - name: warehouses
+        identifier: AZSQL_WAREHOUSES
+        description: "Tabela bruta warehouses originada no Azure SQL."

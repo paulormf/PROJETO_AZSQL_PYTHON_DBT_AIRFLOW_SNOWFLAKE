@@ -1,0 +1,841 @@
+version: 2
+
+models:
+  - name: silver_brands
+    description: "Dados tipados e deduplicados de brands."
+    columns:
+      - name: brand_id
+        description: "Coluna brand_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: brand_name
+        description: "Coluna brand_name da tabela de origem."
+      - name: manufacturer
+        description: "Coluna manufacturer da tabela de origem."
+      - name: status
+        description: "Coluna status da tabela de origem."
+      - name: created_at
+        description: "Coluna created_at da tabela de origem."
+      - name: updated_at
+        description: "Coluna updated_at da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_campaigns
+    description: "Dados tipados e deduplicados de campaigns."
+    columns:
+      - name: campaign_id
+        description: "Coluna campaign_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: campaign_name
+        description: "Coluna campaign_name da tabela de origem."
+      - name: channel
+        description: "Coluna channel da tabela de origem."
+      - name: start_date
+        description: "Coluna start_date da tabela de origem."
+      - name: end_date
+        description: "Coluna end_date da tabela de origem."
+      - name: budget
+        description: "Coluna budget da tabela de origem."
+      - name: status
+        description: "Coluna status da tabela de origem."
+      - name: created_at
+        description: "Coluna created_at da tabela de origem."
+      - name: updated_at
+        description: "Coluna updated_at da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_carriers
+    description: "Dados tipados e deduplicados de carriers."
+    columns:
+      - name: carrier_id
+        description: "Coluna carrier_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: carrier_name
+        description: "Coluna carrier_name da tabela de origem."
+      - name: cnpj
+        description: "Coluna cnpj da tabela de origem."
+      - name: service_level
+        description: "Coluna service_level da tabela de origem."
+      - name: status
+        description: "Coluna status da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_categories
+    description: "Dados tipados e deduplicados de categories."
+    columns:
+      - name: category_id
+        description: "Coluna category_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: category_name
+        description: "Coluna category_name da tabela de origem."
+      - name: parent_category_id
+        description: "Coluna parent_category_id da tabela de origem."
+      - name: status
+        description: "Coluna status da tabela de origem."
+      - name: created_at
+        description: "Coluna created_at da tabela de origem."
+      - name: updated_at
+        description: "Coluna updated_at da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_customer_addresses
+    description: "Dados tipados e deduplicados de customer_addresses."
+    columns:
+      - name: address_id
+        description: "Coluna address_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: "Coluna customer_id da tabela de origem."
+      - name: address_type
+        description: "Coluna address_type da tabela de origem."
+      - name: street
+        description: "Coluna street da tabela de origem."
+      - name: number
+        description: "Coluna number da tabela de origem."
+      - name: complement
+        description: "Coluna complement da tabela de origem."
+      - name: neighborhood
+        description: "Coluna neighborhood da tabela de origem."
+      - name: city
+        description: "Coluna city da tabela de origem."
+      - name: state
+        description: "Coluna state da tabela de origem."
+      - name: zip_code
+        description: "Coluna zip_code da tabela de origem."
+      - name: country
+        description: "Coluna country da tabela de origem."
+      - name: is_primary
+        description: "Coluna is_primary da tabela de origem."
+      - name: created_at
+        description: "Coluna created_at da tabela de origem."
+      - name: updated_at
+        description: "Coluna updated_at da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_customer_campaigns
+    description: "Dados tipados e deduplicados de customer_campaigns."
+    columns:
+      - name: customer_id
+        description: "Coluna customer_id da tabela de origem."
+        data_tests:
+          - not_null
+      - name: campaign_id
+        description: "Coluna campaign_id da tabela de origem."
+        data_tests:
+          - not_null
+      - name: interaction_date
+        description: "Coluna interaction_date da tabela de origem."
+        data_tests:
+          - not_null
+      - name: interaction_type
+        description: "Coluna interaction_type da tabela de origem."
+      - name: conversion
+        description: "Coluna conversion da tabela de origem."
+      - name: created_at
+        description: "Coluna created_at da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_customer_contacts
+    description: "Dados tipados e deduplicados de customer_contacts."
+    columns:
+      - name: contact_id
+        description: "Coluna contact_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: "Coluna customer_id da tabela de origem."
+      - name: contact_type
+        description: "Coluna contact_type da tabela de origem."
+      - name: contact_value
+        description: "Coluna contact_value da tabela de origem."
+      - name: is_primary
+        description: "Coluna is_primary da tabela de origem."
+      - name: created_at
+        description: "Coluna created_at da tabela de origem."
+      - name: updated_at
+        description: "Coluna updated_at da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_customers
+    description: "Dados tipados e deduplicados de customers."
+    columns:
+      - name: customer_id
+        description: "Coluna customer_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_type
+        description: "Coluna customer_type da tabela de origem."
+      - name: full_name
+        description: "Coluna full_name da tabela de origem."
+      - name: cpf
+        description: "Coluna cpf da tabela de origem."
+      - name: cnpj
+        description: "Coluna cnpj da tabela de origem."
+      - name: email
+        description: "Coluna email da tabela de origem."
+      - name: phone
+        description: "Coluna phone da tabela de origem."
+      - name: birth_date
+        description: "Coluna birth_date da tabela de origem."
+      - name: gender
+        description: "Coluna gender da tabela de origem."
+      - name: status
+        description: "Coluna status da tabela de origem."
+      - name: created_at
+        description: "Coluna created_at da tabela de origem."
+      - name: updated_at
+        description: "Coluna updated_at da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_departments
+    description: "Dados tipados e deduplicados de departments."
+    columns:
+      - name: department_id
+        description: "Coluna department_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: department_name
+        description: "Coluna department_name da tabela de origem."
+      - name: cost_center
+        description: "Coluna cost_center da tabela de origem."
+      - name: status
+        description: "Coluna status da tabela de origem."
+      - name: created_at
+        description: "Coluna created_at da tabela de origem."
+      - name: updated_at
+        description: "Coluna updated_at da tabela de origem."
+      - name: manager_id
+        description: "Coluna manager_id da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_employees
+    description: "Dados tipados e deduplicados de employees."
+    columns:
+      - name: employee_id
+        description: "Coluna employee_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: name
+        description: "Coluna name da tabela de origem."
+      - name: cpf
+        description: "Coluna cpf da tabela de origem."
+      - name: email
+        description: "Coluna email da tabela de origem."
+      - name: department_id
+        description: "Coluna department_id da tabela de origem."
+      - name: manager_id
+        description: "Coluna manager_id da tabela de origem."
+      - name: hire_date
+        description: "Coluna hire_date da tabela de origem."
+      - name: termination_date
+        description: "Coluna termination_date da tabela de origem."
+      - name: salary
+        description: "Coluna salary da tabela de origem."
+      - name: status
+        description: "Coluna status da tabela de origem."
+      - name: created_at
+        description: "Coluna created_at da tabela de origem."
+      - name: updated_at
+        description: "Coluna updated_at da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_inventory_balance
+    description: "Dados tipados e deduplicados de inventory_balance."
+    columns:
+      - name: product_id
+        description: "Coluna product_id da tabela de origem."
+        data_tests:
+          - not_null
+      - name: warehouse_id
+        description: "Coluna warehouse_id da tabela de origem."
+        data_tests:
+          - not_null
+      - name: quantity_available
+        description: "Coluna quantity_available da tabela de origem."
+      - name: quantity_reserved
+        description: "Coluna quantity_reserved da tabela de origem."
+      - name: last_updated
+        description: "Coluna last_updated da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_inventory_movements
+    description: "Dados tipados e deduplicados de inventory_movements."
+    columns:
+      - name: movement_id
+        description: "Coluna movement_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: product_id
+        description: "Coluna product_id da tabela de origem."
+      - name: warehouse_id
+        description: "Coluna warehouse_id da tabela de origem."
+      - name: movement_type
+        description: "Coluna movement_type da tabela de origem."
+      - name: quantity
+        description: "Coluna quantity da tabela de origem."
+      - name: movement_date
+        description: "Coluna movement_date da tabela de origem."
+      - name: reference_type
+        description: "Coluna reference_type da tabela de origem."
+      - name: reference_id
+        description: "Coluna reference_id da tabela de origem."
+      - name: created_at
+        description: "Coluna created_at da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_order_items
+    description: "Dados tipados e deduplicados de order_items."
+    columns:
+      - name: order_item_id
+        description: "Coluna order_item_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: "Coluna order_id da tabela de origem."
+      - name: product_id
+        description: "Coluna product_id da tabela de origem."
+      - name: quantity
+        description: "Coluna quantity da tabela de origem."
+      - name: unit_price
+        description: "Coluna unit_price da tabela de origem."
+      - name: discount
+        description: "Coluna discount da tabela de origem."
+      - name: tax
+        description: "Coluna tax da tabela de origem."
+      - name: total_item
+        description: "Coluna total_item da tabela de origem."
+      - name: created_at
+        description: "Coluna created_at da tabela de origem."
+      - name: updated_at
+        description: "Coluna updated_at da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_orders
+    description: "Dados tipados e deduplicados de orders."
+    columns:
+      - name: order_id
+        description: "Coluna order_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: "Coluna customer_id da tabela de origem."
+      - name: sales_channel_id
+        description: "Coluna sales_channel_id da tabela de origem."
+      - name: order_date
+        description: "Coluna order_date da tabela de origem."
+      - name: status
+        description: "Coluna status da tabela de origem."
+      - name: payment_method
+        description: "Coluna payment_method da tabela de origem."
+      - name: shipping_address_id
+        description: "Coluna shipping_address_id da tabela de origem."
+      - name: subtotal
+        description: "Coluna subtotal da tabela de origem."
+      - name: discount
+        description: "Coluna discount da tabela de origem."
+      - name: shipping_cost
+        description: "Coluna shipping_cost da tabela de origem."
+      - name: tax
+        description: "Coluna tax da tabela de origem."
+      - name: total_amount
+        description: "Coluna total_amount da tabela de origem."
+      - name: created_at
+        description: "Coluna created_at da tabela de origem."
+      - name: updated_at
+        description: "Coluna updated_at da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_payment_transactions
+    description: "Dados tipados e deduplicados de payment_transactions."
+    columns:
+      - name: transaction_id
+        description: "Coluna transaction_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: payment_id
+        description: "Coluna payment_id da tabela de origem."
+      - name: gateway
+        description: "Coluna gateway da tabela de origem."
+      - name: authorization_code
+        description: "Coluna authorization_code da tabela de origem."
+      - name: transaction_status
+        description: "Coluna transaction_status da tabela de origem."
+      - name: transaction_amount
+        description: "Coluna transaction_amount da tabela de origem."
+      - name: transaction_date
+        description: "Coluna transaction_date da tabela de origem."
+      - name: created_at
+        description: "Coluna created_at da tabela de origem."
+      - name: updated_at
+        description: "Coluna updated_at da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_payments
+    description: "Dados tipados e deduplicados de payments."
+    columns:
+      - name: payment_id
+        description: "Coluna payment_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: "Coluna order_id da tabela de origem."
+      - name: payment_date
+        description: "Coluna payment_date da tabela de origem."
+      - name: payment_method
+        description: "Coluna payment_method da tabela de origem."
+      - name: amount
+        description: "Coluna amount da tabela de origem."
+      - name: status
+        description: "Coluna status da tabela de origem."
+      - name: transaction_id
+        description: "Coluna transaction_id da tabela de origem."
+      - name: created_at
+        description: "Coluna created_at da tabela de origem."
+      - name: updated_at
+        description: "Coluna updated_at da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_products
+    description: "Dados tipados e deduplicados de products."
+    columns:
+      - name: product_id
+        description: "Coluna product_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: sku
+        description: "Coluna sku da tabela de origem."
+      - name: product_name
+        description: "Coluna product_name da tabela de origem."
+      - name: category_id
+        description: "Coluna category_id da tabela de origem."
+      - name: brand_id
+        description: "Coluna brand_id da tabela de origem."
+      - name: supplier_id
+        description: "Coluna supplier_id da tabela de origem."
+      - name: unit
+        description: "Coluna unit da tabela de origem."
+      - name: weight
+        description: "Coluna weight da tabela de origem."
+      - name: cost_price
+        description: "Coluna cost_price da tabela de origem."
+      - name: sale_price
+        description: "Coluna sale_price da tabela de origem."
+      - name: tax_rate
+        description: "Coluna tax_rate da tabela de origem."
+      - name: status
+        description: "Coluna status da tabela de origem."
+      - name: created_at
+        description: "Coluna created_at da tabela de origem."
+      - name: updated_at
+        description: "Coluna updated_at da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_returns
+    description: "Dados tipados e deduplicados de returns."
+    columns:
+      - name: return_id
+        description: "Coluna return_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: "Coluna order_id da tabela de origem."
+      - name: order_item_id
+        description: "Coluna order_item_id da tabela de origem."
+      - name: return_date
+        description: "Coluna return_date da tabela de origem."
+      - name: quantity
+        description: "Coluna quantity da tabela de origem."
+      - name: reason
+        description: "Coluna reason da tabela de origem."
+      - name: amount
+        description: "Coluna amount da tabela de origem."
+      - name: status
+        description: "Coluna status da tabela de origem."
+      - name: created_at
+        description: "Coluna created_at da tabela de origem."
+      - name: updated_at
+        description: "Coluna updated_at da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_sales_channels
+    description: "Dados tipados e deduplicados de sales_channels."
+    columns:
+      - name: sales_channel_id
+        description: "Coluna sales_channel_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: channel_name
+        description: "Coluna channel_name da tabela de origem."
+      - name: channel_type
+        description: "Coluna channel_type da tabela de origem."
+      - name: status
+        description: "Coluna status da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_shipments
+    description: "Dados tipados e deduplicados de shipments."
+    columns:
+      - name: shipment_id
+        description: "Coluna shipment_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: "Coluna order_id da tabela de origem."
+      - name: carrier_id
+        description: "Coluna carrier_id da tabela de origem."
+      - name: tracking_code
+        description: "Coluna tracking_code da tabela de origem."
+      - name: shipment_date
+        description: "Coluna shipment_date da tabela de origem."
+      - name: estimated_delivery_date
+        description: "Coluna estimated_delivery_date da tabela de origem."
+      - name: actual_delivery_date
+        description: "Coluna actual_delivery_date da tabela de origem."
+      - name: status
+        description: "Coluna status da tabela de origem."
+      - name: shipping_cost
+        description: "Coluna shipping_cost da tabela de origem."
+      - name: created_at
+        description: "Coluna created_at da tabela de origem."
+      - name: updated_at
+        description: "Coluna updated_at da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_suppliers
+    description: "Dados tipados e deduplicados de suppliers."
+    columns:
+      - name: supplier_id
+        description: "Coluna supplier_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: company_name
+        description: "Coluna company_name da tabela de origem."
+      - name: trade_name
+        description: "Coluna trade_name da tabela de origem."
+      - name: cnpj
+        description: "Coluna cnpj da tabela de origem."
+      - name: email
+        description: "Coluna email da tabela de origem."
+      - name: phone
+        description: "Coluna phone da tabela de origem."
+      - name: city
+        description: "Coluna city da tabela de origem."
+      - name: state
+        description: "Coluna state da tabela de origem."
+      - name: status
+        description: "Coluna status da tabela de origem."
+      - name: created_at
+        description: "Coluna created_at da tabela de origem."
+      - name: updated_at
+        description: "Coluna updated_at da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."
+  - name: silver_warehouses
+    description: "Dados tipados e deduplicados de warehouses."
+    columns:
+      - name: warehouse_id
+        description: "Coluna warehouse_id da tabela de origem."
+        data_tests:
+          - not_null
+          - unique
+      - name: warehouse_name
+        description: "Coluna warehouse_name da tabela de origem."
+      - name: city
+        description: "Coluna city da tabela de origem."
+      - name: state
+        description: "Coluna state da tabela de origem."
+      - name: status
+        description: "Coluna status da tabela de origem."
+      - name: created_at
+        description: "Coluna created_at da tabela de origem."
+      - name: updated_at
+        description: "Coluna updated_at da tabela de origem."
+      - name: source_key
+        description: "Identificador técnico do registro de origem."
+        data_tests:
+          - not_null
+      - name: row_hash
+        description: "Hash do conteúdo original na Bronze."
+        data_tests:
+          - not_null
+      - name: source_updated_at
+        description: "Data de atualização registrada na origem."
+      - name: ingested_at
+        description: "Data e hora da ingestão na Bronze."
+      - name: run_id
+        description: "Identificador da execução de ingestão."

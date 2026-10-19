@@ -1,0 +1,8 @@
+﻿snowflake-connector-python
+sqlalchemy
+pyodbc
+pandas
+python-dotenv
+pyarrow
+dbt-snowflake
+cd
