@@ -1,5 +1,4 @@
-﻿
-FROM apache/airflow:3.3.2-python3.12
+﻿FROM apache/airflow:3.3.2-python3.12
 
 USER root
 
@@ -24,13 +23,13 @@ USER airflow
 
 COPY docker/requirements-airflow.txt /tmp/requirements-airflow.txt
 
-RUN pip install --no-cache-dir -r /tmp/requirements-airflow.txt
-
 USER root
 
 RUN python -m venv /opt/dbt-venv \
     && /opt/dbt-venv/bin/pip install --no-cache-dir \
         "dbt-snowflake==1.12.3" \
+        -r /tmp/requirements-airflow.txt \
+    && /opt/dbt-venv/bin/python -c "import pyodbc, dotenv, snowflake.connector; print('Project dependencies installed in dbt-venv')" \
     && chown -R airflow:root /opt/dbt-venv
 
 USER airflow
