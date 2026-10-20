@@ -24,6 +24,8 @@ USER airflow
 
 COPY docker/requirements-airflow.txt /tmp/requirements-airflow.txt
 
+RUN pip install --no-cache-dir -r /tmp/requirements-airflow.txt
+
 USER root
 
 RUN python -m venv /opt/dbt-venv \

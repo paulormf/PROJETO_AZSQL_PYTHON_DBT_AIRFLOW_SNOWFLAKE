@@ -19,6 +19,8 @@
 
     # Chave usada pela API do Airflow
     AIRFLOW__API__SECRET_KEY: "local-development-secret-key-change-me"
+    # A mesma chave JWT deve estar presente no scheduler e no API Server.
+    AIRFLOW__API_AUTH__JWT_SECRET: ${AIRFLOW_JWT_SECRET:?Defina AIRFLOW_JWT_SECRET no arquivo .env}
 
     # Caminhos do projeto
     PYTHONPATH: /opt/airflow/project
