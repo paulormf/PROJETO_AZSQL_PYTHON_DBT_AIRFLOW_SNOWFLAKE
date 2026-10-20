@@ -7,3 +7,18 @@ logs/
 target/
 dbt_packages/
 .DS_Store
+
+# Airflow
+airflow/logs/
+airflow/airflow.db/
+airflow/airflow.cfg
+
+# Python / testes
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# IDE
+.vscode/
+.idea/
