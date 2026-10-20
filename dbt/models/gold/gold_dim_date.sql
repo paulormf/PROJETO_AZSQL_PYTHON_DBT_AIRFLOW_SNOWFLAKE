@@ -1,0 +1,35 @@
+
+{{ config(materialized='table') }}
+
+WITH date_bounds AS (
+    SELECT
+        MIN(ORDER_DATE)::DATE AS MIN_DATE,
+        MAX(ORDER_DATE)::DATE AS MAX_DATE
+    FROM {{ ref('gold_fct_sales') }}
+),
+
+calendar AS (
+    SELECT
+        DATEADD(
+            DAY,
+            SEQ4(),
+            MIN_DATE
+        )::DATE AS DATE_DAY
+    FROM date_bounds,
+    TABLE(GENERATOR(ROWCOUNT => 10000))
+    WHERE DATEADD(DAY, SEQ4(), MIN_DATE) <= MAX_DATE
+)
+
+SELECT
+    TO_NUMBER(TO_CHAR(DATE_DAY, 'YYYYMMDD')) AS DATE_KEY,
+    DATE_DAY,
+    YEAR(DATE_DAY) AS YEAR,
+    QUARTER(DATE_DAY) AS QUARTER,
+    MONTH(DATE_DAY) AS MONTH,
+    MONTHNAME(DATE_DAY) AS MONTH_NAME,
+    DAY(DATE_DAY) AS DAY_OF_MONTH,
+    DAYOFWEEKISO(DATE_DAY) AS DAY_OF_WEEK,
+    DAYNAME(DATE_DAY) AS DAY_NAME,
+    WEEKISO(DATE_DAY) AS ISO_WEEK,
+    IFF(DAYOFWEEKISO(DATE_DAY) IN (6, 7), TRUE, FALSE) AS IS_WEEKEND
+FROM calendar

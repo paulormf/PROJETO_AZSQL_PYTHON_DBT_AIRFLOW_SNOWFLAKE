@@ -1,0 +1,7 @@
+SELECT
+    CUSTOMER_ID,
+    CUSTOMER_TYPE,
+    STATUS AS CUSTOMER_STATUS,
+    CREATED_AT,
+    UPDATED_AT
+FROM {{ ref('silver_customers') }}

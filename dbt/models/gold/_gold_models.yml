@@ -1,0 +1,110 @@
+
+version: 2
+
+models:
+  - name: gold_fct_sales
+    description: >
+      Fato de vendas no grão de um item de pedido.
+      Cada linha representa um item de um pedido.
+    columns:
+      - name: ORDER_ITEM_ID
+        description: Identificador único do item do pedido.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: ORDER_ID
+        description: Identificador do pedido.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('silver_orders')
+                field: ORDER_ID
+
+      - name: PRODUCT_ID
+        description: Identificador do produto vendido.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('silver_products')
+                field: PRODUCT_ID
+
+      - name: ORDER_DATE
+        description: Data do pedido.
+        data_tests:
+          - not_null
+
+      - name: QUANTITY
+        description: Quantidade registrada no item.
+        data_tests:
+          - not_null
+
+  - name: gold_fct_payments
+    description: >
+      Fato de pagamentos no grão de um pagamento.
+      Cada linha representa um registro de pagamento da origem.
+    columns:
+      - name: PAYMENT_ID
+        description: Identificador único do pagamento.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: ORDER_ID
+        description: Identificador do pedido associado ao pagamento.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('silver_orders')
+                field: ORDER_ID
+
+      - name: PAYMENT_AMOUNT
+        description: Valor registrado no pagamento.
+        data_tests:
+          - not_null
+
+  - name: gold_fct_payment_transactions
+    description: >
+      Fato de transações financeiras no grão de uma transação.
+      Permite analisar os resultados das transações por pagamento.
+    columns:
+      - name: TRANSACTION_ID
+        description: Identificador único da transação.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: PAYMENT_ID
+        description: Identificador do pagamento associado à transação.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('silver_payments')
+                field: PAYMENT_ID
+
+      - name: TRANSACTION_STATUS
+        description: Resultado registrado para a transação.
+
+      - name: TRANSACTION_AMOUNT
+        description: Valor informado pela transação.
+        data_tests:
+          - not_null
+
+  - name: gold_dim_date
+    description: Dimensão calendário para análises temporais.
+    columns:
+      - name: DATE_KEY
+        description: Chave numérica no formato AAAAMMDD.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: DATE_DAY
+        description: Data calendário.
+        data_tests:
+          - not_null
+          - unique

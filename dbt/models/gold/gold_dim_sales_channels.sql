@@ -1,0 +1,6 @@
+SELECT
+    SALES_CHANNEL_ID,
+    CHANNEL_NAME,
+    CHANNEL_TYPE,
+    STATUS AS CHANNEL_STATUS
+FROM {{ ref('silver_sales_channels') }}

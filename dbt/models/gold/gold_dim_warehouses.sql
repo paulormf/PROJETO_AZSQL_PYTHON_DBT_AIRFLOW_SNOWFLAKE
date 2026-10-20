@@ -1,0 +1,9 @@
+SELECT
+    WAREHOUSE_ID,
+    WAREHOUSE_NAME,
+    CITY,
+    STATE,
+    STATUS AS WAREHOUSE_STATUS,
+    CREATED_AT,
+    UPDATED_AT
+FROM {{ ref('silver_warehouses') }}
