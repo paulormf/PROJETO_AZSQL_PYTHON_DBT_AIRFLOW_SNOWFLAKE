@@ -19,48 +19,7 @@ O projeto utiliza um banco Azure SQL como fonte de dados, Snowflake como platafo
 
 ## Arquitetura
 
-```text
-                   ┌──────────────────────┐
-                   │      Azure SQL       │
-                   │  Banco de origem     │
-                   └──────────┬───────────┘
-                              │
-                              ▼
-                   ┌──────────────────────┐
-                   │ Python               │
-                   │ Extração e ingestão  │
-                   └──────────┬───────────┘
-                              │
-                              ▼
-                   ┌──────────────────────┐
-                   │ Snowflake — Bronze   │
-                   │ Dados ingeridos      │
-                   └──────────┬───────────┘
-                              │
-                              ▼
-                   ┌──────────────────────┐
-                   │ dbt — Silver         │
-                   │ Limpeza e regras     │
-                   │ de transformação     │
-                   └──────────┬───────────┘
-                              │
-                              ▼
-                   ┌──────────────────────┐
-                   │ dbt — Gold           │
-                   │ Dados analíticos     │
-                   │ e modelos de negócio │
-                   └──────────┬───────────┘
-                              │
-                              ▼
-                   ┌──────────────────────┐
-                   │ Testes de qualidade  │
-                   │ e validações dbt     │
-                   └──────────────────────┘
-
-       Apache Airflow: orquestra as etapas do pipeline
-       Docker: ambiente local de execução
-       Git/GitHub: versionamento do projeto
-```
+![Diagrama da arquitetura e do fluxo de dados do projeto](docs/images/arquitetura-projeto.svg)
 
 ## Tecnologias utilizadas
 
